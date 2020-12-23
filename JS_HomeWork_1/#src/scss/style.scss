@@ -1,0 +1,13 @@
+.home-work {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   h1 {
+      color: darkgoldenrod;
+   }
+   p {
+      color: firebrick;
+      font-size: 40px;
+   }
+}
