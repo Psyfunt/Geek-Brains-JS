@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 4,5</title>
+</head>
+
+<body>
+
+   <script>
+      'use strict'
+      //Задание №4
+      /**
+       * функция складывает числа
+       * @param  {Number} a ожидается число
+       * @param  {Number} b ожидается число
+       * @returns {Number} возвращает результат сложения переданных чисел
+       */
+      function operationPlus(a, b) {
+         let result = a + b;
+         return result;
+      }
+      alert("Результат сложения: " + operationPlus(5, 8));
+
+      /**
+       * функция вычитает числа
+       * @param  {Number} a ожидается число
+       * @param  {Number} b ожидается число
+       * @returns {Number} возвращает результат вычитания переданных чисел
+       */
+      function operationMinus(a, b) {
+         let result = a - b;
+         return result;
+      }
+      alert("Результат вычитания: " + operationMinus(10, 5));
+
+      /**
+       * функция умножает числа
+       * @param  {Number} a ожидается число
+       * @param  {Number} b ожидается число
+       * @returns {Number} возвращает результат умножения переданных чисел
+       */
+      function operationMultiplication(a, b) {
+         let result = a * b;
+         return result;
+      }
+      alert("Результат умножения: " + operationMultiplication(10, 10));
+
+      /**
+       * функция делит числа
+       * @param  {Number} a ожидается число
+       * @param  {Number} b ожидается число
+       * @returns {Number} возвращает результат деления переданных чисел
+       */
+      function operationSegmentation(a, b) {
+         let result = a / b;
+         return result;
+      }
+
+      alert("Результат деления: " + operationSegmentation(10, 5));
+
+      //Задание №5
+      /**
+       * Функция выполняет одну из простых математических операций
+       * @param  {Number} arg1 ожидается число
+       * @param  {Number} arg2 ожидается число
+       * @param  {String} operation ожидается строка со значением операции
+       * @returns {Number} возвращает результат выбранной операции над числами
+       */
+
+      function mathOperation(arg1, arg2, operation) {
+         switch (operation) {
+            case "+": {
+               let result = operationPlus(arg1, arg2);
+               return alert(result);
+            }
+            case "-": {
+               let result = operationMinus(arg1, arg2);
+               return alert(result);
+            }
+            case "*": {
+               let result = operationMultiplication(arg1, arg2);
+               return alert(result);
+            }
+            case "/": {
+               let result = operationSegmentation(arg1, arg2);
+               return alert(result);
+            }
+         }
+      }
+      mathOperation(10, 10, "+");
+      mathOperation(10, 10, "-");
+      mathOperation(10, 10, "*");
+      mathOperation(10, 10, "/");
+   </script>
+</body>
+
+</html>
