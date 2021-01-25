@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 4</title>
+</head>
+
+<body>
+   <script>
+
+      'use strict'
+      const cart = [
+         {
+            id: 1,
+            count: 2,
+            name: "Куртка",
+            price: 127,
+            photos: [
+               "1.jpg",
+               "2.jpg",
+            ]
+         },
+         {
+            id: 2,
+            count: 1,
+            name: "Плащ",
+            price: 499,
+            photos: []
+         },
+         {
+            id: 3,
+            count: 1,
+            name: "Кроссовки",
+            price: 26,
+            photos: [
+               "3.jpg"
+            ]
+         },
+         {
+            id: 4,
+            count: 10,
+            name: "Ботинки",
+            price: 78,
+         },
+      ];
+
+      // Сортировка по возрастанию цены. Метод Sort
+
+      let sortingByPrice = cart.sort((a, b) => a.price - b.price);
+      console.log(sortingByPrice);
+
+      //Фильтр по наличию фотографий. Метод Filter
+
+      let objectWithPhoto = cart.filter(product => product.photos !== undefined && product.photos.length > 0);
+      console.log(objectWithPhoto);
+
+      // Функция подсчета общей суммы корзины. (Практикавался)
+      // Написана с использованием методов Reduce и Map. так же использованы стрелочные функции
+
+      function countBasketPrice() {
+         let totalAmount = 0
+         totalAmount = cart.map(a => totalAmount = a.count * a.price).reduce((a, b) => a + b);
+         return totalAmount;
+      }
+      console.log(`Общая стоимость корзины: ${countBasketPrice()}`);
+
+   </script>
+</body>
+
+</html>
