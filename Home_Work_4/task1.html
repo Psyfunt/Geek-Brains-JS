@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 1</title>
+</head>
+
+<body>
+   <script>
+      'use strict'
+
+      // Задание №1 Решение №1
+
+      function digToObject() {
+         let newObj = {};
+         userNumber = +prompt("Введите число от 0 до 999!");
+         if (Number.isInteger(userNumber) && !isNaN(userNumber) && userNumber >= 0 && userNumber <= 999 && !isFinite(value)) {
+            let arrNumber = userNumber.toString().split('').map(Number);
+            while (arrNumber.length < 3) {
+               arrNumber.unshift(0);
+            }
+            newObj['сотни'] = +arrNumber[0];
+            newObj['десятки'] = +arrNumber[1];
+            newObj['единицы'] = +arrNumber[2];
+            return newObj;
+         } else {
+            console.log('Вы должны ввести число в диапазоне от 0 до 999 и оно должно быть целым!');
+            return newObj;
+         }
+      }
+      digToObject();
+   </script>
+</body>
+
+</html>

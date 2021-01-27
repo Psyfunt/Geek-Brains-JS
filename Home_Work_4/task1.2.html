@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 1.2</title>
+</head>
+
+<body>
+   <script>
+      'use strict'
+      // Задание 1.2
+
+      // Синтаксис ES5
+
+      function Post1(author, text, date) {
+         this.author = author;
+         this.text = text;
+         this.date = date;
+      }
+      Post1.prototype.edit = function (text) {
+         this.text = text;
+      }
+
+      function AttachedPost1(author, text, date) {
+         Post1.call(this, author, text, date);
+         this.highlighted = false;
+      }
+      AttachedPost1.prototype = Object.create(Post1.prototype);
+      AttachedPost1.prototype.constructor = AttachedPost1;
+      AttachedPost1.prototype.makeTextHighlighted = function () {
+         this.highlighted = true;
+      }
+
+      const post1 = new Post1("Alex", "lorem ipsum", "11.11.21");
+      post1.edit("Hello World");
+      console.log(post1)
+
+      const postAtt = new AttachedPost1("Donald", "Hey Hey Hey", "12.12.21");
+      postAtt.makeTextHighlighted();
+      postAtt.edit("Bla Bla Bla");
+
+      console.log(postAtt);
+
+
+      // Синтаксис ES6
+
+      class Post2 {
+         constructor(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+         }
+         edit(text) {
+            this.text = text;
+         }
+      }
+
+      class AttachedPost2 extends Post1 {
+         constructor(author, text, date) {
+            super(author, text, date);
+            this.highlighted = false;
+         }
+         makeTextHighlighted() {
+            this.highlighted = true;
+         }
+      }
+
+      const post2 = new Post2("Dima", "Hi people!", "13.13.2021");
+      post2.edit("PEOPLE!")
+      console.log(post2);
+
+      const postAtt2 = new AttachedPost2("Rita", "I love You", "15.15.15");
+      postAtt2.edit("I love You so much!");
+      console.log(postAtt2);
+
+   </script>
+</body>
+
+</html>
