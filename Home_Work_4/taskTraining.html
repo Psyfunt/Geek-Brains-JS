@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Training</title>
+</head>
+
+<body>
+   <script>
+      'use strict'
+      // Корзина в виде массива обьектов
+      // Конструктор продукта (ES6)
+      class Product {
+         constructor(id, name, count, price, photo) {
+            this.id = id,
+               this.name = name,
+               this.count = count,
+               this.price = price,
+               this.photo = photo,
+               this.totalAmount = count * price;
+         }
+         makeDiscount(discount) {
+            this.newPrice = this.price - (this.price / 100 * discount);
+         };
+
+      }
+      // Конструктор корзины (ES6)
+      class Basket {
+         constructor([]) {
+            this.products = []
+         }
+         addProduct(id, name, count, price, photo) {
+            this.products.push(new Product(id, name, count, price, photo))
+         }
+         basketSum(prop) {
+            this.totalBasketPrice = 0;
+            for (let i = 0; i < this.products.length; i++) {
+               this.totalBasketPrice += this.products[i][prop];
+            }
+         }
+         sortingBy(prop) {
+            this.products.sort((a, b) => a[prop] - b[prop]);
+         }
+         objectWith(prop) {
+            this.productsWith = this.products.filter(product => product[prop] !== undefined);
+         }
+      }
+      let product1 = new Product(1, "Куртка", 2, 900);
+      product1.makeDiscount(25);
+      console.log(product1);
+
+      // Создание экземпляра корзины с добавлением экземпляров продукта
+      // и применение методов корзины и продукта. 
+      let basket = new Basket([]);
+
+      basket.addProduct(1, "Куртка", 3, 400, '1.jpg');
+      basket.addProduct(2, "Пальто", 2, 900, []);
+      basket.addProduct(3, "Свитер", 2, 500);
+      basket.addProduct(4, "Кроссовки", 2, 300, '2.jpg');
+      basket.addProduct(5, "Часы", 2, 200);
+      basket.addProduct(6, "Носки", 2, 600, '3.jpg');
+
+      for (let x in basket.products) {
+         basket.products[x].makeDiscount(25)
+      }
+      basket.objectWith("photo");
+      basket.basketSum('totalAmount');
+      basket.sortingBy('price');
+      console.log(basket);
+   </script>
+</body>
+
+</html>

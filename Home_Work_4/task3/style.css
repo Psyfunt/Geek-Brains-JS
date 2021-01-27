@@ -1,0 +1,23 @@
+body {
+   font-family: Arial, Helvetica, sans-serifs;
+}
+
+.wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.game {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.game h1 {
+   text-align: center;
+   color: goldenrod;
+}
+.question {
+}
+.answers {
+}
